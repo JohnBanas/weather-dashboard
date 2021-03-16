@@ -44,7 +44,8 @@ h2 {
   background-color: rgb(0, 155, 245);
   border-color: rgba(101, 151, 243, 0.671);
   font-weight: 200;
-  width: 3.8rem;
+  margin-left: .5rem;
+  margin-bottom: 1rem;
   height: 3.5rem;
 }
 
@@ -66,10 +67,10 @@ h2 {
 }
 
 .cityBtn {
-width: 95%;
+width: 21.5rem;
 height: 5rem;
 margin-left: .5rem;
-margin-right: .5rem;
+margin-bottom: 1rem;
 border-radius: .4rem;
 background-color: white;
 }
