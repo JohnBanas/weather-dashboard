@@ -1,0 +1,77 @@
+/** set root for rem **/
+root {
+  background-color: white;
+  font-size: 70%;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/** header and heading **/
+header {
+  height: 6rem;
+}
+
+.heading {
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+  font-size: 4rem;
+  font-weight: 400;
+}
+/** end of header **/
+
+/** current city search and history **/
+.searchDiv {
+  height: 55rem;
+  background-color: whitesmoke;
+}
+
+h2 {
+  margin-left: .5rem;
+  font-weight: 500;
+}
+
+.searchInput {
+  margin-left: .5rem;
+  margin-bottom: 1rem;
+  height: 3.5rem;
+  border-radius: .4rem;
+}
+
+.searchBtn {
+  border-radius: .4rem;
+  background-color: rgb(0, 155, 245);
+  border-color: rgba(101, 151, 243, 0.671);
+  font-weight: 200;
+  width: 3.8rem;
+  height: 3.5rem;
+}
+
+.searchBtn:hover {
+  cursor: pointer;
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.searchUL {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.searchLI {
+  margin: 0;
+  padding: 0;
+}
+
+.cityBtn {
+width: 95%;
+height: 5rem;
+margin-left: .5rem;
+margin-right: .5rem;
+border-radius: .4rem;
+background-color: white;
+}
+
+/** end of city search **/

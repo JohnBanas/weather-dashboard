@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Staatliches&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/2723252070.js" crossorigin="anonymous">
+  </script>
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="col-12 bg-dark text-light d-flex flex-column">
+    <h1 class="text-center">
+      Weather Dashboard
+    </h1>
+  </header>
+  <!-- Row for Bootstrap col -->
+  <div class="row min-vh-100 no-gutters">
+    <main class="col-12 col-lg-9 d-flex flex-column">
+      <div class="searchDiv col-12">
+        <h2 class="align-items-center">
+          Search for a city:
+        </h2>
+        <!-- input for city name -->
+        <input type="text" class="col-12 searchInput">
+        <!-- search button with search icon -->
+        <button class="col-12 searchBtn">
+          <i class="fas fa-search"></i>
+        </button>
+        <!-- history of city search list with clickable buttons -->
+        <ul class="searchUL col-12">
+          <li class="searchLI col-12">
+            <button class="cityBtn">
+              List Item
+            </button>
+          </li>
+        </ul>
+      </div>
+      <!-- selected city current day -->
+      <div class="m-5 row justify-content-start">
+        <div class="col-12">
+          <div class="mainCard card text-dark ">
+            <ul id="mainCityConditions" class="list-group list-group-flush">
+            </ul>
+          </div>
+        </div>
+        <!-- five day forecast -->
+        <div class="fiveDayForecastHeading col-12 col-md-6 col-xl-3">
+          <h2 class="align-items-center">
+            5-Day Forecast:
+          </h2>
+        </div>
+        <!-- first day card -->
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <ul id="firstDay" class="list-group list-group-flush">
+            </ul>
+          </div>
+        </div>
+        <!-- second day card -->
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <ul id="secondDay" class="list-group list-group-flush">
+            </ul>
+          </div>
+        </div>
+        <!-- third day card -->
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <ul id="thirdDay" class="list-group list-group-flush">
+            </ul>
+          </div>
+        </div>
+        <!-- fourth day card -->
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <ul id="fourthDay" class="list-group list-group-flush">
+            </ul>
+          </div>
+        </div>
+        <!-- fifth day card -->
+        <div class="col-12 col-md-6 col-xl-3 mb-3">
+          <div class="card">
+            <ul id="fifthDay" class="list-group list-group-flush">
+            </ul>
+          </div>
+        </div>
+        <!-- end of fifth day card -->
+      </div>
+      <!-- end of cards container -->
+    </main>
+    
+  </div>
+  <!-- end of row for Bootstrap col -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
