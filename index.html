@@ -27,34 +27,34 @@
   <!-- Row for Bootstrap col -->
   <div class="row min-vh-100 no-gutters">
     <main class="col-12 col-lg-9 d-flex flex-column">
-      <div class="searchDiv col-12">
-        <h2 class="align-items-center">
+      <div class="searchDiv card">
+        <h2 class=" card-header align-items-center">
           Search for a city:
         </h2>
-        <!-- input for city name -->
-        <input type="text" class="col-12 searchInput">
-        <!-- search button with search icon -->
-        <button class="col-12 searchBtn">
-          <i class="fas fa-search"></i>
-        </button>
+        <form id="searchForm" class="card-body">
+          <!-- input for city name -->
+          <input id="searchInput" type="text" class="col-12 searchInput">
+          <!-- search button with search icon -->
+          <button id="searchBtn" type="submit" class="col-12 searchBtn">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
         <!-- history of city search list with clickable buttons -->
-        <ul class="searchUL col-12">
-          <li class="searchLI col-12">
-            <button class="cityBtn">
-              List Item
-            </button>
-          </li>
-        </ul>
-
+        <div class="card">
+          <form class="card-body">
+            <ul id="searchUL" class="searchUL col-12">
+            </ul>
+          </form>
+        </div>
         <!-- selected city current day -->
         <div class="m-5 row justify-content-start">
           <div class="col-12">
-            <div class="mainCard card text-dark ">
-              <ul id="mainCityConditions" class="col-12 list-group">
+            <form class="mainCard card text-dark ">
+              <ul id="mainCityConditions" class="card-body col-12 list-group">
                 <li>test</li>
                 <li>test</li>
               </ul>
-            </div>
+            </form>
           </div>
           <!-- five day forecast -->
           <div class="fiveDayForecastHeading col-12 col-md-6 col-xl-3">
@@ -64,38 +64,41 @@
           </div>
           <!-- first day card -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
-            <div class="card">
-              <ul id="firstDay" class="list-group list-group-flush">
+            <form class="card">
+              <ul id="firstDay" class="card-body list-group list-group-flush">
               </ul>
-            </div>
+            </form>
           </div>
           <!-- second day card -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
-            <div class="card">
-              <ul id="secondDay" class="list-group list-group-flush">
+            <form class="card">
+              <ul id="secondDay" class="card-body list-group list-group-flush">
               </ul>
-            </div>
+            </form>
           </div>
           <!-- third day card -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
-            <div class="card">
-              <ul id="thirdDay" class="list-group list-group-flush">
+            <form class="card">
+              <ul id="thirdDay" class="card-body list-group list-group-flush">
               </ul>
-            </div>
+            </form>
           </div>
           <!-- fourth day card -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
-            <div class="card">
-              <ul id="fourthDay" class="list-group list-group-flush">
+            <form class="card">
+              <ul id="fourthDay" class="card-body list-group list-group-flush">
               </ul>
-            </div>
+            </form>
           </div>
           <!-- fifth day card -->
           <div class="col-12 col-md-6 col-xl-3 mb-3">
-            <div class="card">
-              <ul id="fifthDay" class="list-group list-group-flush">
+            <form class="card">
+              <ul id="fifthDay" class="card-bofy list-group list-group-flush">
+                <li>
+                  test
+                </li>
               </ul>
-            </div>
+            </form>
           </div>
           <!-- end of fifth day card -->
         </div>

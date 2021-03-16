@@ -23,17 +23,14 @@ header {
 
 /** current city search and history **/
 .searchDiv {
-  height: 55rem;
   background-color: whitesmoke;
 }
 
 h2 {
-  margin-left: .5rem;
   font-weight: 500;
 }
 
 .searchInput {
-  margin-left: .5rem;
   margin-bottom: 1rem;
   height: 3.5rem;
   border-radius: .4rem;
@@ -44,8 +41,6 @@ h2 {
   background-color: rgb(0, 155, 245);
   border-color: rgba(101, 151, 243, 0.671);
   font-weight: 200;
-  margin-left: .5rem;
-  margin-bottom: 1rem;
   height: 3.5rem;
 }
 
@@ -66,11 +61,13 @@ h2 {
   padding: 0;
 }
 
+.cityHistoryContainer {
+  margin: 2rem;
+}
+
 .cityBtn {
-width: 21.5rem;
-height: 5rem;
-margin-left: .5rem;
-margin-bottom: 1rem;
+width: 99%;
+height: 4rem;
 border-radius: .4rem;
 background-color: white;
 }
