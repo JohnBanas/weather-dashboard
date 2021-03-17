@@ -15,7 +15,7 @@ let searchULEl = document.querySelector('#searchUL');
 citySubmitHandler = (event) => {
   event.preventDefault();
   console.log(event.target)
-  
+
   // get value from input element
   city = searchInputEl.value.trim();
 
@@ -33,17 +33,14 @@ $(window).on('load', function () {
     //since you don't know the key names(cities chosen), you gather all the keys 
     //and the value pairs and iterate through them
     key = Object.keys(localStorage),
-    i = 0, key;
-  //iterate through each key in localStorage 
-  for (; key = key[i]; i++) {
-    let cityInfo = key[i];
-    console.log(cityInfo);
+      i = 0, key;
+    //iterate through each key in localStorage 
+  for (; key[i]; i++) {
+    cityInfo = key[i];
     //take the value of the key and save it in a variable 
     let dataInfo = JSON.parse(localStorage.getItem(key[i]));
-    cityConditionsBtn(cityInfo, dataInfo);
+    cityConditionsBtn(cityInfo.replace(/\"/g, ''), dataInfo);
   }
-  
-  //pull out with array
 })
 
 
@@ -54,10 +51,10 @@ cityConditionsBtn = (city, data) => {
   let cityListBtnEl = document.createElement('button');
 
   cityListItemEl.classList = 'searchLI col-12';
-  cityListItemEl.setAttribute('data-name', `${city}`);
+  cityListItemEl.setAttribute('data-name', city);
 
   cityListBtnEl.classList = 'cityBtn';
-  cityListBtnEl.textContent = `${city}`;
+  cityListBtnEl.textContent = city;
 
   cityListItemEl.appendChild(cityListBtnEl);
 
