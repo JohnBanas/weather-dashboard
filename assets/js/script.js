@@ -321,26 +321,33 @@ createCurrentDayCard = (city, cityWeather, cityTemp, cityHumidity, cityWind, cit
   windEl.textContent = 'Wind Speed: ' + cityWind + 'MPH';
   //UV index: colored box indicating severity with format (9.49) inside
   let cityUVEl = document.createElement('li');
+  let cityUVElSpan = document.createElement('span');
   if (cityUV < 3) {
-    cityUVEl.textContent = 'UV Index: ' + cityUV;
-    cityUVEl.setAttribute('class', 'low');
+    cityUVEl.textContent = 'UV Index: ';
+    cityUVElSpan.setAttribute('class', 'low');
+    cityUVElSpan.textContent = cityUV;
     cityUVFontA = document.createElement('i')
     cityUVFontA.setAttribute('class', 'fa-duotone fa-face-smile');
-    cityUVEl.appendChild(cityUVFontA);
+    cityUVElSpan.appendChild(cityUVFontA);
+    cityUVEl.appendChild(cityUVElSpan);
   } else
     if (cityUV >= 3 && cityUV < 8) {
       cityUVEl.textContent = 'UV Index: ' + cityUV;
-      cityUVEl.setAttribute('class', 'moderate');
+      cityUVElSpan.setAttribute('class', 'moderate');
+      cityUVElSpan.textContent = cityUV;
       cityUVFontA = document.createElement('i')
       cityUVFontA.setAttribute('class', 'fa-duotone fa-fire');
-      cityUVEl.appendChild(cityUVFontA);
+      cityUVElSpan.appendChild(cityUVFontA);
+      cityUVEl.appendChild(cityUVElSpan);
     } else
       if (cityUV >= 8) {
         cityUVEl.textContent = 'UV Index: ' + cityUV;
-        cityUVEl.setAttribute('class', 'severe');
+        cityUVElSpan.setAttribute('class', 'severe');
+        cityUVElSpan.textContent = cityUV;
         cityUVFontA = document.createElement('i')
         cityUVFontA.setAttribute('class', 'fa-duotone fa-skull-crossbones');
-        cityUVEl.appendChild(cityUVFontA);
+        cityUVElSpan.appendChild(cityUVFontA);
+        cityUVEl.appendChild(cityUVElSpan);
       }
   //append to <ul> in the main card
   mainCityConditionsEL.append(cityNameEl, temperatureMainEl, humidityEl, windEl, cityUVEl);

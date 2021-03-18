@@ -73,3 +73,39 @@ background-color: white;
 }
 
 /** end of city search **/
+
+/** list items **/
+
+li {
+  list-style: none;
+  padding: 1rem;
+}
+/** five day forecast icons **/
+i:nth-child(2) {
+  padding-left: 1rem;
+}
+
+.low {
+  color: white;
+  background-color: green;
+  border-radius: .25rem;
+  padding: .2rem;
+}
+
+.moderate {
+  color: white;
+  background-color: orange;
+  border-radius: .25rem;
+  padding: .2rem;
+}
+
+.severe {
+  color: black;
+  background-color:red;
+  border-radius: .25rem;
+  padding: .2rem;
+}
+
+span > i {
+  padding: .5rem;
+}
