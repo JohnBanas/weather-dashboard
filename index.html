@@ -17,95 +17,88 @@
   <link href="./assets/font_awesome/font_awesome_css/all.css" rel="stylesheet" />
   <title>Weather Dashboard</title>
 </head>
-
 <body>
   <!-- Header -->
   <header class="col-12 bg-dark text-light d-flex flex-column">
-    <h1 class="text-center">
+    <h1 id="dashboardHeader" class="text-center">
       Weather Dashboard
     </h1>
   </header>
   <!-- Row for Bootstrap col -->
-  <div class="container">
-      <div class="row min-vh-100 no-gutters searchDiv card">
-        <h2 class=" card-header align-items-center">
+  <div class="container-fluid">
+    <div class="row searchDiv">
+      <div class="col-xl-3 col-lg-3 col-12 card searchStyle">
+        <h2 class="align-items-center">
           Search for a city:
         </h2>
         <form id="searchForm" class="card-body">
           <!-- input for city name -->
-          <input id="searchInput" type="text" class="col-12 searchInput">
+          <input id="searchInput" type="text" class="col-8 searchInput">
           <!-- search button with search icon -->
-          <button id="searchBtn" type="submit" class="col-12 searchBtn">
+          <button id="searchBtn" type="submit" class="col-3 searchBtn">
             <i class="fas fa-search"></i>
           </button>
+          <!-- history of city search list with clickable buttons -->
+          <ul id="searchUL" class="searchUL">
+          </ul>
         </form>
-        <!-- history of city search list with clickable buttons -->
-        <div class="card">
-          <form class="card-body">
-            <ul id="searchUL" class="searchUL col-12">
+      </div>
+      <div class="col-xl-9 col-lg-9 col-12">
+        <!-- selected city current day -->
+        <section id="mainCard" class="mainCard">
+          <form class="text-dark">
+            <ul id="mainCityConditions" class="list-group">
             </ul>
           </form>
+        </section>
+        <!-- five day forecast -->
+        <section class="fiveDayForecastHeading">
+          <h2 class="align-items-center">
+            5-Day Forecast:
+          </h2>
+        </section>
+        <div class="container">
+          <div class="row">
+            <!-- first day card -->
+            <section id="dayOne" class="col-12 col-xl-2 col-lg-3 firstDay">
+              <form>
+                <ul id="firstDay" class="card-body list-group list-group-flush">
+                </ul>
+              </form>
+            </section>
+            <!-- second day card -->
+            <section id="dayTwo" class="col-12 col-xl-2 col-lg-3 secondDay">
+              <form>
+                <ul id="secondDay" class="card-body list-group list-group-flush">
+                </ul>
+              </form>
+            </section>
+            <!-- third day card -->
+            <section id="dayThree" class="col-12 col-xl-2 col-lg-3 thirdDay">
+              <form>
+                <ul id="thirdDay" class="card-body list-group list-group-flush">
+                </ul>
+              </form>
+            </section>
+            <!-- fourth day card -->
+            <section id="dayFour" class="col-12 col-xl-2 col-lg-3 fourthDay">
+              <form>
+                <ul id="fourthDay" class="card-body list-group list-group-flush">
+                </ul>
+              </form>
+            </section>
+            <!-- fifth day card -->
+            <section id="dayFive" class="col-12 col-xl-2 col-lg-3 fifthDay">
+              <form>
+                <ul id="fifthDay" class="card-body list-group list-group-flush">
+                </ul>
+              </form>
+            </section>
+          </div>
         </div>
       </div>
+    </div>
   </div>
-  <div class="container">
-        <!-- selected city current day -->
-          <section class="mainCard col-12 col-lg-8">
-            <form class="card text-dark">
-              <ul id="mainCityConditions" class="card-body col-12 list-group">
-              </ul>
-            </form>
-          </section>
-          <!-- five day forecast -->
-          <section class="fiveDayForecastHeading col-12 col-lg-8">
-            <h2 class="align-items-center">
-              5-Day Forecast:
-            </h2>
-          </section>
-          <!-- first day card -->
-          <section class="firstDay col-12 col-md-6 col-xl-3 mb-3">
-            <form class="card">
-              <ul id="firstDay" class="card-body list-group list-group-flush">
-              </ul>
-            </form>
-          </section>
-          <!-- second day card -->
-          <section class="secondDay col-12 col-md-6 col-xl-3 mb-3">
-            <form class="card">
-              <ul id="secondDay" class="card-body list-group list-group-flush">
-              </ul>
-            </form>
-          </section>
-          <!-- third day card -->
-          <section class="thirdDay col-12 col-md-6 col-xl-3 mb-3">
-            <form class="card">
-              <ul id="thirdDay" class="card-body list-group list-group-flush">
-              </ul>
-            </form>
-          </section>
-          <!-- fourth day card -->
-          <section class="fourthDay col-12 col-md-6 col-xl-3 mb-3">
-            <form class="card">
-              <ul id="fourthDay" class="card-body list-group list-group-flush">
-              </ul>
-            </form>
-          </section>
-          <!-- fifth day card -->
-          <section class="fifthDay col-12 col-md-6 col-xl-3 mb-3">
-            <form class="card">
-              <ul id="fifthDay" class="card-body list-group list-group-flush">
-              </ul>
-            </form>
-          </section>
-          <!-- end of fifth day card -->
-        
-      
-      <!-- end of cards container -->
-    
-
-  </div>
-  <!-- end of row for Bootstrap col -->
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
@@ -114,5 +107,4 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
-
 </html>

@@ -95,9 +95,7 @@ let fourthDayCardULEl = document.querySelector('.fourthDay');
 let fifthDayULEl = document.querySelector('#fifthDay');
 /* fifth day card */
 let fifthDayCardULEl = document.querySelector('.fifthDay');
-
-
-
+  
 /* function to make text input the city and call fetch function */
 /* also create city button, push info to localStorage */
 citySubmitHandler = (event) => {
@@ -201,7 +199,7 @@ getCityWeather = (city) => {
       alert("Unable to connect to weather data");
     });
 }
-
+/* get all weather data including uv index which is not available in current weather */
 getAllForecast = (cityLat, cityLon, city) => {
   //one call api for UV index as well as five day forecast
   let oneAPIURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + cityLat + '&lon=' + cityLon + '&units=imperial&exclude=minutely,hourly&appid=3d15e45d12f197c35af3d283e17262ae';
@@ -243,7 +241,6 @@ getAllForecast = (cityLat, cityLon, city) => {
           let dayFiveTemp = data.daily[4].temp.max;
           let dayFiveHumidity = data.daily[4].humidity;
 
-
           fontAwesomeIcon = (cityWeather) => {
             //font awesome icons in place of api's
             if (cityWeather === '50d' || cityWeather === '50n') {
@@ -277,7 +274,6 @@ getAllForecast = (cityLat, cityLon, city) => {
                         }
             return cityWeather;
           }
-
           createCurrentDayCard(city, fontAwesomeIcon(cityWeather), cityTemp, cityHumidity, cityWind, cityUV);
           //end of current day info
 
@@ -297,10 +293,6 @@ getAllForecast = (cityLat, cityLon, city) => {
 
           //day five card
           dayFive(fifthDay, fontAwesomeIcon(dayFiveWeather), dayFiveTemp, dayFiveHumidity);
-
-
-
-
         })
       } else {
         //alerts if there is an error message when attempting to retrieve api url
@@ -379,12 +371,12 @@ dayOne = (firstDay, dayOneWeather, dayOneTemp, dayOneHumidity) => {
   dateEl.textContent = firstDay;
 
   let weatherEl = document.createElement('li');
-  dateEl.classList = 'cardLi';
+  weatherEl.classList = 'cardLi';
   weatherEl.appendChild(dayOneWeather);
 
   let temperatureMainEl = document.createElement('li');
   temperatureMainEl.classList = 'cardLi';
-  temperatureMainEl.textContent = 'Temperature: ' + Math.floor(dayOneTemp) + String.fromCharCode(176) + 'F';
+  temperatureMainEl.textContent = 'Temp: ' + Math.floor(dayOneTemp) + String.fromCharCode(176) + 'F';
 
   let humidityEl = document.createElement('li');
   humidityEl.classList = 'mainCardLi';
@@ -400,12 +392,12 @@ dayTwo = (secondDay, dayTwoWeather, dayTwoTemp, dayTwoHumidity) => {
   dateEl.textContent = secondDay;
 
   let weatherEl = document.createElement('li');
-  dateEl.classList = 'cardLi';
+  weatherEl.classList = 'cardLi';
   weatherEl.appendChild(dayTwoWeather);
 
   let temperatureMainEl = document.createElement('li');
   temperatureMainEl.classList = 'cardLi';
-  temperatureMainEl.textContent = 'Temperature: ' + Math.floor(dayTwoTemp) + String.fromCharCode(176) + 'F';
+  temperatureMainEl.textContent = 'Temp: ' + Math.floor(dayTwoTemp) + String.fromCharCode(176) + 'F';
 
   let humidityEl = document.createElement('li');
   humidityEl.classList = 'mainCardLi';
@@ -421,12 +413,12 @@ dayThree = (thirdDay, dayThreeWeather, dayThreeTemp, dayThreeHumidity) => {
   dateEl.textContent = thirdDay;
 
   let weatherEl = document.createElement('li');
-  dateEl.classList = 'cardLi';
+  weatherEl.classList = 'cardLi';
   weatherEl.appendChild(dayThreeWeather);
 
   let temperatureMainEl = document.createElement('li');
   temperatureMainEl.classList = 'cardLi';
-  temperatureMainEl.textContent = 'Temperature: ' + Math.floor(dayThreeTemp) + String.fromCharCode(176) + 'F';
+  temperatureMainEl.textContent = 'Temp: ' + Math.floor(dayThreeTemp) + String.fromCharCode(176) + 'F';
 
   let humidityEl = document.createElement('li');
   humidityEl.classList = 'mainCardLi';
@@ -442,12 +434,12 @@ dayFour = (fourthDay, dayFourWeather, dayFourTemp, dayFourHumidity) => {
   dateEl.textContent = fourthDay;
 
   let weatherEl = document.createElement('li');
-  dateEl.classList = 'cardLi';
+  weatherEl.classList = 'cardLi';
   weatherEl.appendChild(dayFourWeather);
 
   let temperatureMainEl = document.createElement('li');
   temperatureMainEl.classList = 'cardLi';
-  temperatureMainEl.textContent = 'Temperature: ' + Math.floor(dayFourTemp) + String.fromCharCode(176) + 'F';
+  temperatureMainEl.textContent = 'Temp: ' + Math.floor(dayFourTemp) + String.fromCharCode(176) + 'F';
 
   let humidityEl = document.createElement('li');
   humidityEl.classList = 'mainCardLi';
@@ -463,12 +455,12 @@ dayFive = (fifthDay, dayFiveWeather, dayFiveTemp, dayFiveHumidity) => {
   dateEl.textContent = fifthDay;
 
   let weatherEl = document.createElement('li');
-  dateEl.classList = 'cardLi';
+  weatherEl.classList = 'cardLi';
   weatherEl.appendChild(dayFiveWeather);
 
   let temperatureMainEl = document.createElement('li');
   temperatureMainEl.classList = 'cardLi';
-  temperatureMainEl.textContent = 'Temperature: ' + Math.floor(dayFiveTemp) + String.fromCharCode(176) + 'F';
+  temperatureMainEl.textContent = 'Temp: ' + Math.floor(dayFiveTemp) + String.fromCharCode(176) + 'F';
 
   let humidityEl = document.createElement('li');
   humidityEl.classList = 'mainCardLi';
