@@ -65,22 +65,36 @@ let searchULEl = document.querySelector('#searchUL');
 
 /* current city/current day <ul> element in HTML */
 let mainCityConditionsEL = document.querySelector('#mainCityConditions');
-let originalState = $(mainCityConditionsEL).clone();
+/* current city card */
+let mainCardEl = document.querySelector('.mainCard')
+
+/* five day heading */
+let fiveDayForecastHeadingEl = document.querySelector('.fiveDayForecastHeading')
 
 /* first day card <ul> */
 let firstDayULEl = document.querySelector('#firstDay');
+/* first day card */
+let firstDayCardULEl = document.querySelector('.firstDay');
 
-/* first day card <ul> */
+/* second day card <ul> */
 let secondDayULEl = document.querySelector('#secondDay');
+/* second day card */
+let secondDayCardULEl = document.querySelector('.secondDay');
 
-/* first day card <ul> */
+/* third day card <ul> */
 let thirdDayULEl = document.querySelector('#thirdDay');
+/* third day card */
+let thirdDayCardULEl = document.querySelector('.thirdDay');
 
-/* first day card <ul> */
+/* fourth day card <ul> */
 let fourthDayULEl = document.querySelector('#fourthDay');
+/* fourth day card */
+let fourthDayCardULEl = document.querySelector('.fourthDay');
 
-/* first day card <ul> */
+/* fifth day card <ul> */
 let fifthDayULEl = document.querySelector('#fifthDay');
+/* fifth day card */
+let fifthDayCardULEl = document.querySelector('.fifthDay');
 
 
 
@@ -92,13 +106,13 @@ citySubmitHandler = (event) => {
   $('.list-group').contents().remove();
   // get value from input element
   city = searchInputEl.value.trim();
-
-  if (city) {
-    getCityWeather(city);
+  if (localStorage.getItem('"' + city + '"')) {
     searchInputEl.value = '';
-  } else {
-    alert("Please enter a valid city.");
+    return;
   }
+  console.log(city)
+  getCityWeather(city);
+  searchInputEl.value = '';
 };
 
 cityHistoryClickHandler = (event) => {
@@ -106,38 +120,40 @@ cityHistoryClickHandler = (event) => {
   //take out previous city values
   $('.list-group').contents().remove();
   history = $(event.target).text().replace(/ /g, '_').replace(/\./g, '-');
-  
+
   console.log(history)
   $('#' + history).remove();
+  history.replace(/\_/g, ' ').replace(/\-/g, '.')
   window.localStorage.removeItem('"' + history + '"');
   getCityWeather(history.replace(/\_/g, ' ').replace(/\-/g, '.'));
+  console.log(history)
 }
 
 /* when the page loads check local storage and if there are any
 stored cities pass them as parameters for cityConditionsBtn */
 
-  localPull = () => {
-    //since you don't know the key names(cities chosen), you gather all the keys 
-    //and the value pairs and iterate through them
-    key = Object.keys(localStorage),
-      i = 0, key;
-    //iterate through each key in localStorage 
-    for (; key[i]; i++) {
-      cityInfo = key[i];
-      //take the value of the key and save it in a variable 
-      let dataInfo = JSON.parse(localStorage.getItem(key[i]));
-      //take out the quotes from the JSON parse() function so 
-      //that the btn is not saved in local storage under new key, it replaces instead
-      //then passes the city and data as parameters to create the buttons
-      cityConditionsBtn(cityInfo.replace(/\"/g, '').replace(/\_/g, ' ').replace(/\-/g, '.'), dataInfo);
-    }
+localPull = () => {
+  //since you don't know the key names(cities chosen), you gather all the keys 
+  //and the value pairs and iterate through them
+  key = Object.keys(localStorage),
+    i = 0, key;
+  //iterate through each key in localStorage 
+  for (; key[i]; i++) {
+    cityInfo = key[i];
+    //take the value of the key and save it in a variable 
+    let dataInfo = JSON.parse(localStorage.getItem(key[i]));
+    //take out the quotes from the JSON parse() function so 
+    //that the btn is not saved in local storage under new key, it replaces instead
+    //then passes the city and data as parameters to create the buttons
+    cityConditionsBtn(cityInfo.replace(/\"/g, '').replace(/\_/g, ' ').replace(/\-/g, '.'), dataInfo);
   }
+}
 
 
 //create btn for city history search
 cityConditionsBtn = (city, data) => {
+
   let cityID = city.replace(/ /g, '_').replace(/\./g, '-');
-  console.log(cityID)
   //create list item for <ul> in HTML
   let cityListItemEl = document.createElement('li');
   //button inside list item
@@ -148,12 +164,13 @@ cityConditionsBtn = (city, data) => {
   //class and text for button (text is current city name)
   cityListBtnEl.classList = 'cityBtn';
   cityListBtnEl.textContent = city;
+  $(cityListBtnEl).attr({ 'data-btn': city });
   //list item append button
   cityListItemEl.appendChild(cityListBtnEl);
   //<ul> in HTML append list item
   searchULEl.appendChild(cityListItemEl);
   //set the key(current city), value(that city's data) pair for local storage in string form 
-  localStorage.setItem(JSON.stringify(cityListItemEl.getAttribute('data-name')), JSON.stringify(data));
+  localStorage.setItem(JSON.stringify(city), JSON.stringify(data));
 }
 
 
@@ -188,19 +205,19 @@ getCityWeather = (city) => {
 getAllForecast = (cityLat, cityLon, city) => {
   //one call api for UV index as well as five day forecast
   let oneAPIURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + cityLat + '&lon=' + cityLon + '&units=imperial&exclude=minutely,hourly&appid=3d15e45d12f197c35af3d283e17262ae';
-  
+
   fetch(oneAPIURL)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
           //all info for current day weather card
           cityWeather = data.current.weather[0].icon;
-          
+
           cityTemp = data.current.temp;
           cityHumidity = data.current.humidity;
           cityWind = data.current.wind_speed;
           cityUV = data.current.uvi;
-          
+
           //day one (in five day) weather
           dayOneWeather = data.daily[0].weather[0].icon;
           let dayOneTemp = data.daily[0].temp.max;
@@ -260,7 +277,7 @@ getAllForecast = (cityLat, cityLon, city) => {
                         }
             return cityWeather;
           }
-          
+
           createCurrentDayCard(city, fontAwesomeIcon(cityWeather), cityTemp, cityHumidity, cityWind, cityUV);
           //end of current day info
 
@@ -282,8 +299,8 @@ getAllForecast = (cityLat, cityLon, city) => {
           dayFive(fifthDay, fontAwesomeIcon(dayFiveWeather), dayFiveTemp, dayFiveHumidity);
 
 
-          
-          
+
+
         })
       } else {
         //alerts if there is an error message when attempting to retrieve api url
@@ -368,7 +385,7 @@ dayOne = (firstDay, dayOneWeather, dayOneTemp, dayOneHumidity) => {
   let temperatureMainEl = document.createElement('li');
   temperatureMainEl.classList = 'cardLi';
   temperatureMainEl.textContent = 'Temperature: ' + Math.floor(dayOneTemp) + String.fromCharCode(176) + 'F';
-  
+
   let humidityEl = document.createElement('li');
   humidityEl.classList = 'mainCardLi';
   humidityEl.textContent = 'Humidity: ' + dayOneHumidity + '%';

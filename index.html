@@ -26,9 +26,8 @@
     </h1>
   </header>
   <!-- Row for Bootstrap col -->
-  <div class="row min-vh-100 no-gutters">
-    <main class="col-12 col-lg-9 d-flex flex-column">
-      <div class="searchDiv card">
+  <div class="container">
+      <div class="row min-vh-100 no-gutters searchDiv card">
         <h2 class=" card-header align-items-center">
           Search for a city:
         </h2>
@@ -48,60 +47,61 @@
           </form>
         </div>
       </div>
+  </div>
+  <div class="container">
         <!-- selected city current day -->
-        <div class="m-5 row justify-content-start">
-          <section class="col-12">
-            <form class="mainCard card text-dark">
+          <section class="mainCard col-12 col-lg-8">
+            <form class="card text-dark">
               <ul id="mainCityConditions" class="card-body col-12 list-group">
               </ul>
             </form>
           </section>
           <!-- five day forecast -->
-          <section class="fiveDayForecastHeading col-12 col-md-6 col-xl-3">
+          <section class="fiveDayForecastHeading col-12 col-lg-8">
             <h2 class="align-items-center">
               5-Day Forecast:
             </h2>
           </section>
           <!-- first day card -->
-          <section class="col-12 col-md-6 col-xl-3 mb-3">
+          <section class="firstDay col-12 col-md-6 col-xl-3 mb-3">
             <form class="card">
               <ul id="firstDay" class="card-body list-group list-group-flush">
               </ul>
             </form>
           </section>
           <!-- second day card -->
-          <section class="col-12 col-md-6 col-xl-3 mb-3">
+          <section class="secondDay col-12 col-md-6 col-xl-3 mb-3">
             <form class="card">
               <ul id="secondDay" class="card-body list-group list-group-flush">
               </ul>
             </form>
           </section>
           <!-- third day card -->
-          <section class="col-12 col-md-6 col-xl-3 mb-3">
+          <section class="thirdDay col-12 col-md-6 col-xl-3 mb-3">
             <form class="card">
               <ul id="thirdDay" class="card-body list-group list-group-flush">
               </ul>
             </form>
           </section>
           <!-- fourth day card -->
-          <section class="col-12 col-md-6 col-xl-3 mb-3">
+          <section class="fourthDay col-12 col-md-6 col-xl-3 mb-3">
             <form class="card">
               <ul id="fourthDay" class="card-body list-group list-group-flush">
               </ul>
             </form>
           </section>
           <!-- fifth day card -->
-          <section class="col-12 col-md-6 col-xl-3 mb-3">
+          <section class="fifthDay col-12 col-md-6 col-xl-3 mb-3">
             <form class="card">
               <ul id="fifthDay" class="card-body list-group list-group-flush">
               </ul>
             </form>
           </section>
           <!-- end of fifth day card -->
-        </div>
+        
       
       <!-- end of cards container -->
-    </main>
+    
 
   </div>
   <!-- end of row for Bootstrap col -->
