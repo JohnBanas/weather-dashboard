@@ -14,7 +14,7 @@ A website to dynamically show the current weather of any chosen city. Any city c
 
 ## Website
 
-()
+(https://johnbanas.github.io/weather-dashboard/)
 
 ### Web Page Image
 ![]()
