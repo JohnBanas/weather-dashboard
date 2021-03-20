@@ -14,10 +14,10 @@ A website to dynamically show the current weather of any chosen city. Any city c
 
 ## Website
 
-()
+(https://johnbanas.github.io/weather-dashboard/)
 
 ### Web Page Image
-![]()
+![weather search application which displays current date and city weather conditions](./assets/images/Weather-Dashboard.png)
 
 ## Contribution
 Made with :heart: by John Patrick Banas
